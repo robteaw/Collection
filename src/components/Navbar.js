@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 // images
 import { FaBars, FaTimes } from "react-icons/fa"; // npm install react-icons --save
@@ -15,19 +16,19 @@ export default function Navbar() {
   return (
     <Nav>
       <Logo onClick={closeMobileMenu}>
-        <a href="#">
+        <Link to="/">
           <img src={logo} alt="" />
-        </a>
+        </Link>
       </Logo>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <li className="nav-links" onClick={closeMobileMenu}>
-          <a href="#">Movies</a>
+          <Link to="/">Movies</Link>
         </li>
         <li className="nav-links" onClick={closeMobileMenu}>
-          <a href="#">Wishlist</a>
+          <Link to="/wishlist">Wishlist</Link>
         </li>
         <li className="nav-links" onClick={closeMobileMenu}>
-          <a href="#">Contact</a>
+          <Link to="/contact">Contact</Link>
         </li>
       </ul>
       <MenuIcon
