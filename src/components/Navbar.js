@@ -43,32 +43,35 @@ export default function Navbar() {
 
 // styling
 const Nav = styled.div`
-  background-color: var(--navColor);
-  height: 65px;
+  background-color: translucent;
+  height: 70px;
   width: 100%;
+  margin-top: 0.5rem;
   display: flex;
   position: sticky;
   align-items: center;
   justify-content: space-around;
   img {
-    height: 50px;
+    height: 65px;
   }
   .nav-menu {
     list-style-type: none;
   }
   .nav-links {
-    padding: 20px 20px;
     display: inline-block; // place links side by side
   }
   a {
     color: var(--linkColor);
+    margin: 0 1.5rem;
+    letter-spacing: 0.2rem;
     text-decoration: none;
+    transition: 0.3s ease-in-out;
     &:hover {
       color: var(--linkHover);
     }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 550px) {
     padding: 0 2rem;
     position: relative;
     justify-content: space-between;
@@ -99,6 +102,7 @@ const Nav = styled.div`
 
 const Logo = styled.div`
   align-items: left;
+  user-select: none;
 `;
 
 const MenuIcon = styled.div`
@@ -110,7 +114,7 @@ const MenuIcon = styled.div`
     color: var(--linkHover);
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 550px) {
     display: block;
   }
 `;
