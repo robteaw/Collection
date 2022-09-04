@@ -9,7 +9,12 @@
   --linkColor: #fff;
   --linkHover: #00FF00;
   --bgColor: #4B0082;
+  --headColor: #00FF00;
   --textColor: #dcdcdc;
+  --selectColor: #b09cbd;
+  --btnColor: #fff;
+  --btnColor2: #000;
+  --btnHover: #00FF00;
 }
 html {
   scroll-behavior: smooth;
@@ -20,6 +25,7 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 h1 {
+  color: var(--headColor);
   font-size: 2.5rem;
 }
 p {
