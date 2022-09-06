@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import Movie from "./Movie";
 
 export default function Home() {
   return (
     <Container>
       <p>Home</p>
+      <Movie />
     </Container>
   );
 }
