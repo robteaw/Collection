@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+import add from "../../images/add.png";
+import edit from "../../images/edit.png";
+import remove from "../../images/remove.png";
 
 export default function Movie() {
   const [listOfMovies, setListOfMovies] = useState([]);
@@ -25,18 +28,20 @@ export default function Movie() {
 
   return (
     <>
-      <div>
-        {listOfMovies.map((movie) => {
-          return (
-            <div>
-              <h2>Name: {movie.name}</h2>
-              <h2>Genre: {movie.genre}</h2>
-              <h2>Image:</h2> <img src={movie.image} alt="" />
-            </div>
-          );
-        })}
+      <div className="card_container">
+        {listOfMovies
+          .sort((a, b) => (a.name > b.name ? 1 : -1)) // sort by name
+          .map((movie) => {
+            return (
+              <div className="card">
+                <h3>{movie.name}</h3>
+                <p>{movie.genre}</p>
+                <img src={movie.image} alt="" />
+              </div>
+            );
+          })}
       </div>
-      <div className="add">
+      <div className="add_data">
         <input
           type="text"
           placeholder="Name"
@@ -58,7 +63,9 @@ export default function Movie() {
             setImage(e.target.value);
           }}
         />
-        <button onClick={createMovie}>Add Movie</button>
+        <img src={add} onClick={createMovie} />
+        <img src={edit} />
+        <img src={remove} />
       </div>
     </>
   );
