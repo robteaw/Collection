@@ -53,10 +53,28 @@ const InnerContainer = styled.div`
       margin: 0 0.5rem;
       border-radius: 0.5rem;
     }
-    img {
-      height: 2.5rem;
-      margin: 0 0.5rem;
+    button {
+      color: var(--btnColor);
+      font-size: 0.8rem;
+      font-weight: bold;
+      width: 4rem;
+      margin: 0 0.25rem;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 0.5rem;
       cursor: pointer;
+      &:hover {
+        background-color: var(--btnBgHover);
+      }
+    }
+    .add {
+      background-color: var(--addBtn);
+    }
+    .edit {
+      background-color: var(--editBtn);
+    }
+    .delete {
+      background-color: var(--deleteBtn);
     }
   }
 `;

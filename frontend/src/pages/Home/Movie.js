@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import add from "../../images/add.png";
-import edit from "../../images/edit.png";
-import remove from "../../images/remove.png";
 
 export default function Movie() {
   const [listOfMovies, setListOfMovies] = useState([]);
@@ -63,9 +60,11 @@ export default function Movie() {
             setImage(e.target.value);
           }}
         />
-        <img src={add} onClick={createMovie} />
-        <img src={edit} />
-        <img src={remove} />
+        <button className="add" onClick={createMovie}>
+          Add
+        </button>
+        <button className="edit">Edit</button>
+        <button className="delete">Delete</button>
       </div>
     </>
   );

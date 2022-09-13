@@ -15,7 +15,11 @@
   --btnColor: #fff;
   --btnColor2: #000;
   --btnHover: #00FF00;
-  --addbtn: #00FF00;
+  --btnColor: #4B0082;
+  --addBtn: #00FF00;
+  --editBtn: #87CEFA;
+  --deleteBtn: rgb(253, 60, 60);
+  --btnBgHover: #FFD700;
 }
 html {
   scroll-behavior: smooth;
