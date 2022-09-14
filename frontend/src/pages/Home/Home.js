@@ -19,7 +19,7 @@ const Container = styled.div`
   width: 100%;
   max-width: 1280px;
   margin: 0 auto 5rem auto;
-  padding: 8rem 15%;
+  padding: 8rem 12%;
 `;
 
 const InnerContainer = styled.div`
@@ -27,9 +27,17 @@ const InnerContainer = styled.div`
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 5rem;
+    column-gap: 8rem;
+    align-items: center;
+    justify-content: center;
     .card {
       width: 100%;
+      margin: 2rem 0;
+      text-align: center;
+      cursor: pointer;
+      &:hover {
+        border-left: #fff;
+      }
     }
     h3 {
       color: var(--headColor);
@@ -45,7 +53,7 @@ const InnerContainer = styled.div`
     }
   }
   .add_data {
-    margin: 5rem 0;
+    margin: 5rem 0 2rem 0;
     display: flex;
     justify-content: center;
     input {
@@ -53,13 +61,18 @@ const InnerContainer = styled.div`
       margin: 0 0.5rem;
       border-radius: 0.5rem;
     }
+  }
+  .button_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     button {
       color: var(--btnColor);
-      font-size: 0.8rem;
+      font-size: 1rem;
       font-weight: bold;
-      width: 4rem;
+      min-width: 3rem;
       margin: 0 0.25rem;
-      padding: 0.8rem;
+      padding: 0.75rem;
       border: none;
       border-radius: 0.5rem;
       cursor: pointer;
@@ -75,6 +88,30 @@ const InnerContainer = styled.div`
     }
     .delete {
       background-color: var(--deleteBtn);
+    }
+  }
+  // Media Queries
+  @media (max-width: 1300px) {
+    .card_container {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 4rem;
+    }
+  }
+  @media (max-width: 900px) {
+    .add_data {
+      flex-direction: column;
+      input {
+        margin: 0.8rem 0;
+      }
+      .button_container {
+        margin-top: 1rem;
+        justify-content: left;
+      }
+    }
+  }
+  @media (max-width: 655px) {
+    .card_container {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 `;

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+import { FaPlus } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 
 export default function Movie() {
   const [listOfMovies, setListOfMovies] = useState([]);
@@ -13,8 +16,20 @@ export default function Movie() {
     });
   }, []);
 
+  // Add movie to database
   const createMovie = () => {
     Axios.post("http://localhost:3001/createMovie", {
+      name,
+      genre,
+      image,
+    }).then((response) => {
+      setListOfMovies([...listOfMovies, { name, genre, image }]);
+    });
+  };
+
+  // Delete movie from database
+  const deleteMovie = () => {
+    Axios.delete("http://localhost:3001/deleteMovie", {
       name,
       genre,
       image,
@@ -55,16 +70,22 @@ export default function Movie() {
         />
         <input
           type="text"
-          placeholder="Image"
+          placeholder="Image Url"
           onChange={(e) => {
             setImage(e.target.value);
           }}
         />
-        <button className="add" onClick={createMovie}>
-          Add
-        </button>
-        <button className="edit">Edit</button>
-        <button className="delete">Delete</button>
+        <div className="button_container">
+          <button className="add" onClick={createMovie}>
+            <FaPlus />
+          </button>
+          <button className="edit">
+            <FaEdit />
+          </button>
+          <button className="delete" onClick={deleteMovie}>
+            <FaTimes />
+          </button>
+        </div>
       </div>
     </>
   );

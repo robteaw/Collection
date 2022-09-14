@@ -71,7 +71,7 @@ const Nav = styled.div`
     }
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: 700px) {
     padding: 0 2rem;
     position: relative;
     justify-content: space-between;
@@ -114,7 +114,7 @@ const MenuIcon = styled.div`
     color: var(--linkHover);
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: 700px) {
     display: block;
   }
 `;
