@@ -27,16 +27,18 @@ const InnerContainer = styled.div`
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 8rem;
+    column-gap: 7rem;
     align-items: center;
     justify-content: center;
     .card {
       width: 100%;
       margin: 2rem 0;
+      padding: 1rem;
       text-align: center;
       cursor: pointer;
       &:hover {
-        border-left: #fff;
+        background-color: var(--cardHover);
+        box-shadow: 0 5px 15px rgb(9, 241, 86);
       }
     }
     h3 {

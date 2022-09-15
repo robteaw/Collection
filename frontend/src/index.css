@@ -20,6 +20,7 @@
   --editBtn: #87CEFA;
   --deleteBtn: rgb(253, 60, 60);
   --btnBgHover: #FFD700;
+  --cardHover: #00008B;
 }
 html {
   scroll-behavior: smooth;

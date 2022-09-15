@@ -28,7 +28,7 @@ export default function Movie() {
   };
 
   // Delete movie from database
-  const deleteMovie = () => {
+  const deleteMovie = (name) => {
     Axios.delete("http://localhost:3001/deleteMovie", {
       name,
       genre,
