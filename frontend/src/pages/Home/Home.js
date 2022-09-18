@@ -33,12 +33,21 @@ const InnerContainer = styled.div`
     .card {
       width: 100%;
       margin: 2rem 0;
-      padding: 1rem;
       text-align: center;
-      cursor: pointer;
       &:hover {
-        background-color: var(--cardHover);
-        box-shadow: 0 5px 15px rgb(9, 241, 86);
+        h3 {
+          display: none;
+        }
+        p {
+          display: none;
+        }
+        img {
+          box-shadow: 0 5px 10px 10px rgb(9, 241, 86);
+        }
+        .button_container_2 {
+          margin-bottom: 2rem;
+          display: block;
+        }
       }
     }
     h3 {
@@ -64,33 +73,33 @@ const InnerContainer = styled.div`
       border-radius: 0.5rem;
     }
   }
-  .button_container {
-    display: flex;
+  .button_container_2 {
+    display: none;
     flex-direction: row;
     justify-content: center;
-    button {
-      color: var(--btnColor);
-      font-size: 1rem;
-      font-weight: bold;
-      min-width: 3rem;
-      margin: 0 0.25rem;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      &:hover {
-        background-color: var(--btnBgHover);
-      }
+  }
+  button {
+    color: var(--btnColor);
+    font-size: 1rem;
+    font-weight: bold;
+    min-width: 3rem;
+    margin: 0 0.25rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--btnBgHover);
     }
-    .add {
-      background-color: var(--addBtn);
-    }
-    .edit {
-      background-color: var(--editBtn);
-    }
-    .delete {
-      background-color: var(--deleteBtn);
-    }
+  }
+  .add {
+    background-color: var(--addBtn);
+  }
+  .edit {
+    background-color: var(--editBtn);
+  }
+  .delete {
+    background-color: var(--deleteBtn);
   }
   // Media Queries
   @media (max-width: 1300px) {
