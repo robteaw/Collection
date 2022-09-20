@@ -35,7 +35,7 @@ export default function Navbar() {
         onClick={handleClick}
         // className={icon ? "icon icon-scroll" : "icon"}
       >
-        {click ? <FaBars /> : <FaTimes />}
+        {click ? <FaTimes /> : <FaBars />}
       </MenuIcon>
     </Nav>
   );
@@ -83,19 +83,23 @@ const Nav = styled.div`
       top: 4rem; /* removes the spacing in navbar and menu */
       left: -100%;
     }
-    .nav-menu .active {
+    .nav-menu.active {
+      background-color: var(--selectColor);
       padding: 1.5rem;
       left: 0;
       opacity: 98%;
       outline: none;
       z-index: 999;
     }
-    .nav-menu li {
+    .nav-links {
       text-align: center;
       padding: 1.5rem;
       top: 0;
       width: 100%;
       display: table;
+    }
+    li a {
+      color: var(--btnColor);
     }
   }
 `;

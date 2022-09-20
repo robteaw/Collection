@@ -30,13 +30,13 @@ app.post("/createMovie", async (req, res) => {
   res.json(movie);
 });
 
-app.delete("/deleteMovie", async (req, res) => {
-  try {
-    await Movie.findByIdAndDelete(req.body.id);
-    return res.status(200).json({ success: true, msg: "Movie deleted!" });
-  } catch (err) {
-    console.error(err);
-  }
+app.delete("/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  // if (err) {
+  //   console.log(err);
+  // } else {
+  //   res.send(result);
+  // }
 });
 
 app.listen(3001, () => {

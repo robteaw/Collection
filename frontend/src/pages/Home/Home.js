@@ -64,7 +64,7 @@ const InnerContainer = styled.div`
     }
   }
   .add_data {
-    margin: 5rem 0 2rem 0;
+    margin-bottom: 3rem;
     display: flex;
     justify-content: center;
     input {

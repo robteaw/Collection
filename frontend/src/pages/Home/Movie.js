@@ -17,7 +17,8 @@ export default function Movie() {
   }, []);
 
   // Add movie
-  const createMovie = () => {
+  const createMovie = (e) => {
+    e.preventDefault();
     Axios.post("http://localhost:3001/createMovie", {
       name,
       genre,
@@ -42,18 +43,14 @@ export default function Movie() {
   // } )
 
   // Delete movie
-  const deleteMovie = async (id) => {
-    try {
-      const res = await Axios.delete(
-        "http://localhost:3001/deleteMovie/id",
-        id
-      );
-      if (res.data.success) {
-        alert(res.data.msg);
-      }
-    } catch (err) {
-      console.error(err);
-    }
+  const deleteMovie = (id) => {
+    // e.stopPropagation();
+    // if (window.confirm("Are you sure you want to delete?")) {
+    Axios.delete(`http://localhost:3001/delete/${id}`).then((res) =>
+      console.log("Movie deleted!", res)
+    );
+    // .catch((err) => console.log(err));
+    // }
   };
 
   return (
@@ -101,7 +98,7 @@ export default function Movie() {
                   </button>
                   <button
                     className="delete"
-                    onClick={(e) => deleteMovie(movie.id)}
+                    onClick={(e) => deleteMovie(movie.id, e)}
                   >
                     <FaTimes />
                   </button>
