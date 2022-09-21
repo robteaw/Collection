@@ -29,28 +29,22 @@ export default function Movie() {
   };
 
   // Edit movie
-  // Axios.put('/update', async (req, res) => {
-  //   const newMovie = req.body.newMovie;
-  //   const id = req.body.id;
+  const updateMovie = (id) => {
+    const newName = prompt("Enter new name: ");
 
-  //   Movie.update({_id:id})
-
-  //   try {
-  //     await
-  //   } catch(err) {
-  //     console.log(err)
-  //   }
-  // } )
+    Axios.put('http://localhost:3001/update', {newName: newName, id: id}).then(() => {
+      setListOfMovies(listOfMovies.map((val) => {
+        return val._id == id
+        ? {_id: id, name: newName, genre: genre} : val
+      }
+      });
+  });
 
   // Delete movie
   const deleteMovie = (id) => {
     // e.stopPropagation();
     // if (window.confirm("Are you sure you want to delete?")) {
-    Axios.delete(`http://localhost:3001/delete/${id}`).then((res) =>
-      console.log("Movie deleted!", res)
-    );
-    // .catch((err) => console.log(err));
-    // }
+    Axios.delete(`http://localhost:3001/delete/${id}`);
   };
 
   return (
@@ -98,7 +92,9 @@ export default function Movie() {
                   </button>
                   <button
                     className="delete"
-                    onClick={(e) => deleteMovie(movie.id, e)}
+                    onClick={() => {
+                      deleteMovie(movie.id);
+                    }}
                   >
                     <FaTimes />
                   </button>

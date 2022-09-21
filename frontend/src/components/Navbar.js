@@ -52,7 +52,7 @@ const Nav = styled.div`
   align-items: center;
   justify-content: space-around;
   img {
-    height: 65px;
+    height: 50px;
   }
   .nav-menu {
     list-style-type: none;
@@ -111,6 +111,7 @@ const Logo = styled.div`
 
 const MenuIcon = styled.div`
   color: var(--linkColor);
+  font-size: 1.5rem;
   display: none;
   cursor: pointer;
 

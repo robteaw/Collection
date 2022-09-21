@@ -32,11 +32,8 @@ app.post("/createMovie", async (req, res) => {
 
 app.delete("/delete/:id", async (req, res) => {
   const id = req.params.id;
-  // if (err) {
-  //   console.log(err);
-  // } else {
-  //   res.send(result);
-  // }
+  await MovieModel.findByIdAndRemove(id).exec();
+  res.send("itemdeleted");
 });
 
 app.listen(3001, () => {
