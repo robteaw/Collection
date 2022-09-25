@@ -32,13 +32,19 @@ export default function Movie() {
   const updateMovie = (id) => {
     const newName = prompt("Enter new name: ");
 
-    Axios.put('http://localhost:3001/update', {newName: newName, id: id}).then(() => {
-      setListOfMovies(listOfMovies.map((val) => {
-        return val._id == id
-        ? {_id: id, name: newName, genre: genre} : val
-      }
-      });
-  });
+    Axios.put("http://localhost:3001/update", {
+      newName: newName,
+      id: id,
+    }).then(() => {
+      setListOfMovies(
+        listOfMovies.map((movie) => {
+          return (movie._id = id
+            ? { _id: id, name: movie.name, genre: genre }
+            : movie);
+        })
+      );
+    });
+  };
 
   // Delete movie
   const deleteMovie = (id) => {
@@ -87,7 +93,12 @@ export default function Movie() {
                 <h3>{movie.name}</h3>
                 <p>{movie.genre}</p>
                 <div className="button_container_2">
-                  <button className="edit">
+                  <button
+                    className="edit"
+                    onClick={() => {
+                      updateMovie(movie.id);
+                    }}
+                  >
                     <FaEdit />
                   </button>
                   <button

@@ -30,6 +30,21 @@ app.post("/createMovie", async (req, res) => {
   res.json(movie);
 });
 
+app.put("/update", async (req, res) => {
+  const newName = req.body.newName;
+  const id = req.body.id;
+
+  try {
+    await MovieModel.findById(id, (error, movieToUpdate) => {
+      movieToUpdate.name = String(newName);
+      movieToUpdate.save();
+    });
+  } catch (err) {
+    console.log(err);
+  }
+  res.send("updated");
+});
+
 app.delete("/delete/:id", async (req, res) => {
   const id = req.params.id;
   await MovieModel.findByIdAndRemove(id).exec();
