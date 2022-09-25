@@ -24,7 +24,10 @@ export default function Movie() {
       genre,
       image,
     }).then((response) => {
-      setListOfMovies([...listOfMovies, { name, genre, image }]);
+      setListOfMovies([
+        ...listOfMovies,
+        { _id: response.data._id, name, genre, image },
+      ]);
     });
   };
 
@@ -35,7 +38,7 @@ export default function Movie() {
     Axios.put("http://localhost:3001/update", {
       newName: newName,
       id: id,
-    }).then(() => {
+    }).then((response) => {
       setListOfMovies(
         listOfMovies.map((movie) => {
           return (movie._id = id
@@ -50,7 +53,13 @@ export default function Movie() {
   const deleteMovie = (id) => {
     // e.stopPropagation();
     // if (window.confirm("Are you sure you want to delete?")) {
-    Axios.delete(`http://localhost:3001/delete/${id}`);
+    Axios.delete(`http://localhost:3001/delete/${id}`).then(() => {
+      setListOfMovies(
+        listOfMovies.filter((movie) => {
+          return movie._id != id;
+        })
+      );
+    });
   };
 
   return (
@@ -96,7 +105,7 @@ export default function Movie() {
                   <button
                     className="edit"
                     onClick={() => {
-                      updateMovie(movie.id);
+                      updateMovie(movie._id);
                     }}
                   >
                     <FaEdit />
@@ -104,7 +113,7 @@ export default function Movie() {
                   <button
                     className="delete"
                     onClick={() => {
-                      deleteMovie(movie.id);
+                      deleteMovie(movie._id);
                     }}
                   >
                     <FaTimes />
