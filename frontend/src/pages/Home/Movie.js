@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import { FaPlus } from "react-icons/fa";
-import { FaEdit } from "react-icons/fa";
-import { FaTimes } from "react-icons/fa";
+import { FaPlus, FaEdit, FaTimes } from "react-icons/fa";
+import Search from "./Search";
 
 export default function Movie() {
   const [listOfMovies, setListOfMovies] = useState([]);
@@ -51,19 +50,24 @@ export default function Movie() {
 
   // Delete movie
   const deleteMovie = (id) => {
-    // e.stopPropagation();
-    // if (window.confirm("Are you sure you want to delete?")) {
-    Axios.delete(`http://localhost:3001/delete/${id}`).then(() => {
-      setListOfMovies(
-        listOfMovies.filter((movie) => {
-          return movie._id != id;
-        })
-      );
-    });
+    if (window.confirm("Are you sure you want to delete?")) {
+      Axios.delete(`http://localhost:3001/delete/${id}`).then(() => {
+        setListOfMovies(
+          listOfMovies.filter((movie) => {
+            return movie._id != id;
+          })
+        );
+      });
+    }
   };
 
   return (
     <>
+      <div className="button_initial">
+        <button className="search">Search</button>
+        <button className="add">Add</button>
+      </div>
+      <Search />
       <div className="add_data">
         <input
           type="text"
