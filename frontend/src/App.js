@@ -7,7 +7,7 @@ import {
 import "./index.css";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home/Home";
-import Wishlist from "./pages/Wishlist/Wishlist";
+import Form from "./pages/Form/Form";
 import Contact from "./pages/Contact/Contact";
 import Error from "./pages/Error";
 
@@ -17,7 +17,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/wishlist" exact element={<Wishlist />} />
+        <Route path="/form" exact element={<Form />} />
         <Route path="/contact" exact element={<Contact />} />
         <Route path="*" element={<Error />} />
       </Routes>

@@ -25,7 +25,7 @@ export default function Navbar() {
           <Link to="/">Movies</Link>
         </li>
         <li className="nav-links" onClick={closeMobileMenu}>
-          <Link to="/wishlist">Wishlist</Link>
+          <Link to="/form">Form</Link>
         </li>
         <li className="nav-links" onClick={closeMobileMenu}>
           <Link to="/contact">Contact</Link>
