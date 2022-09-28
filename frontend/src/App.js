@@ -7,8 +7,8 @@ import {
 import "./index.css";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home/Home";
-import Form from "./pages/Form/Form";
-import Contact from "./pages/Contact/Contact";
+import Customize from "./pages/Customize/Customize";
+import Request from "./pages/Request/Request";
 import Error from "./pages/Error";
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/form" exact element={<Form />} />
-        <Route path="/contact" exact element={<Contact />} />
+        <Route path="/customize" exact element={<Customize />} />
+        <Route path="/request" exact element={<Request />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>

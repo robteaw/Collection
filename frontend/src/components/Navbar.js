@@ -25,10 +25,10 @@ export default function Navbar() {
           <Link to="/">Movies</Link>
         </li>
         <li className="nav-links" onClick={closeMobileMenu}>
-          <Link to="/form">Form</Link>
+          <Link to="/customize">Customize</Link>
         </li>
         <li className="nav-links" onClick={closeMobileMenu}>
-          <Link to="/contact">Contact</Link>
+          <Link to="/request">Request</Link>
         </li>
       </ul>
       <MenuIcon

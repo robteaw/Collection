@@ -3,12 +3,23 @@ import { FaSearch, FaTimes } from "react-icons/fa";
 import styled from "styled-components";
 
 export default function Search() {
+  const [listOfMovies, setListOfMovies] = useState([]);
+
   // Filter search
   const [filter, setFilter] = useState("");
 
   const searchText = (e) => {
     setFilter(e.target.value);
   };
+
+  let dataSearch = listOfMovies.filter((movie) => {
+    return Object.keys(movie).some((key) =>
+      movie[key]
+        .toString()
+        .toLowerCase()
+        .includes(filter.toString().toLowerCase())
+    );
+  });
 
   // Clear search
   const clearInput = () => {

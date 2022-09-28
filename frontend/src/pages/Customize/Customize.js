@@ -1,13 +1,11 @@
 import React from "react";
+import Buttons from "./Buttons";
 import styled from "styled-components";
-import Movie from "./Movie";
 
-export default function Home() {
+export default function Customize() {
   return (
     <Container>
-      <InnerContainer>
-        <Movie />
-      </InnerContainer>
+      <Buttons />
     </Container>
   );
 }
@@ -20,12 +18,9 @@ const Container = styled.div`
   max-width: 1280px;
   margin: 0 auto 5rem auto;
   padding: 8rem 12%;
-`;
 
-const InnerContainer = styled.div`
   .card_container {
     width: 100%;
-    margin-top: 5rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 7rem;
@@ -36,6 +31,12 @@ const InnerContainer = styled.div`
       margin: 2rem 0;
       text-align: center;
       &:hover {
+        h3 {
+          display: none;
+        }
+        p {
+          display: none;
+        }
         img {
           box-shadow: 0 5px 10px 10px rgb(9, 241, 86);
         }
@@ -86,6 +87,12 @@ const InnerContainer = styled.div`
     &:hover {
       background-color: var(--btnBgHover);
     }
+  }
+  .add {
+    background-color: var(--addBtn);
+  }
+  .edit {
+    background-color: var(--editBtn);
   }
   .delete {
     background-color: var(--deleteBtn);

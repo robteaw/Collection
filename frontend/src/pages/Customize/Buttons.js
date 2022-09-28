@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { FaPlus, FaEdit, FaTimes } from "react-icons/fa";
 
-export default function Form() {
+export default function Buttons() {
   const [listOfMovies, setListOfMovies] = useState([]);
   const [name, setName] = useState("");
   const [genre, setGenre] = useState("");
@@ -61,11 +61,7 @@ export default function Form() {
   };
 
   return (
-    <>
-      <div className="button_initial">
-        <button className="search">Search</button>
-        <button className="add">Add</button>
-      </div>
+    <section>
       <div className="add_data">
         <input
           type="text"
@@ -127,6 +123,6 @@ export default function Form() {
             );
           })}
       </div>
-    </>
+    </section>
   );
 }
