@@ -23,6 +23,32 @@ const Container = styled.div`
 `;
 
 const InnerContainer = styled.div`
+  .search_bar {
+    width: 100%;
+    margin: 0.5rem;
+    display: flex;
+    justify-content: center;
+  }
+  input {
+    width: 100%;
+    max-width: 30rem;
+    padding: 0.75rem;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+  }
+  button {
+    font-size: 1rem;
+    font-weight: bold;
+    min-width: 3rem;
+    margin: 0 0.25rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  .search {
+    background-color: var(--searchBtn);
+  }
   .card_container {
     width: 100%;
     margin-top: 5rem;

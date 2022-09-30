@@ -53,7 +53,7 @@ export default function Buttons() {
       Axios.delete(`http://localhost:3001/delete/${id}`).then(() => {
         setListOfMovies(
           listOfMovies.filter((movie) => {
-            return movie._id != id;
+            return movie._id !== id;
           })
         );
       });
