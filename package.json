@@ -3,6 +3,6 @@
     "react-icons": "^4.4.0"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "react-scripts build"
   }
 }
