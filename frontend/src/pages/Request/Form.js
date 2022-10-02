@@ -2,27 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 export default function Form() {
-  // Format phone number
-  const [inputValue, setInputValue] = useState("");
-  const handleInput = (e) => {
-    const formattedPhone = formatPhone(e.target.value);
-    setInputValue(formattedPhone);
-  };
-
-  function formatPhone(value) {
-    if (!value) return value;
-    const phoneNumber = value.replace(/[^\d]/g, "");
-    const phoneNumberLength = phoneNumber.length + 1;
-    if (phoneNumberLength < 4) return phoneNumber;
-    if (phoneNumberLength < 7) {
-      return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
-    }
-    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
-      3,
-      6
-    )}-${phoneNumber.slice(6, 10)}`;
-  }
-
   // Form submit stays on same page
   const onSubmit = (e) => {
     e.preventDefault();
@@ -39,19 +18,9 @@ export default function Form() {
         <div>
           <input
             type="text"
-            name="firstName"
-            id="firstName"
-            placeholder="First Name"
-            class="form-element"
-            required
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            name="lastName"
-            id="lastName"
-            placeholder="Last Name"
+            name="name"
+            id="name"
+            placeholder="Name"
             class="form-element"
             required
           />
@@ -66,19 +35,7 @@ export default function Form() {
             required
           />
         </div>
-        <div>
-          <input
-            type="tel"
-            name="phoneNumber"
-            id="phoneNumber"
-            placeholder="Phone Number"
-            class="form-element"
-            required
-            onChange={(e) => handleInput(e)}
-            value={inputValue}
-          />
-        </div>
-        <Reason>
+        {/* <Reason>
           <select name="reason" id="reason">
             <option disabled selected>
               Movie
@@ -87,7 +44,7 @@ export default function Form() {
             <option value="2">#</option>
             <option value="3">#</option>
           </select>
-        </Reason>
+        </Reason> */}
         <div class="form-text">
           <textarea
             name="message"
@@ -167,7 +124,7 @@ const Reason = styled.div`
     border: 0;
     font: inherit;
     width: 100%;
-    color: var(--subColor);
+    border: 1px solid var(--selectColor);
     background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
         no-repeat right 0.8em center / 1.4em,
       linear-gradient(to left, var(--selectColor) 3em, var(--btnColor) 3em);
@@ -176,7 +133,7 @@ const Reason = styled.div`
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
     cursor: pointer;
     option {
-      color: inherit;
+      color: (--textColor);
       background-color: var(--textHover);
     }
     /* Remove focus outline */

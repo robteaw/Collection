@@ -7,8 +7,10 @@ export default function Request() {
     <Container>
       <h1>Request</h1>
       <p>
-        Choose a movie that you are interested in from the dropdown list and
-        provide a time of day.
+        {/* Choose a movie that you are interested in from the dropdown list and
+        provide a time of day. */}
+        Provide a name, email and any movie request below. I will get back to
+        you as soon as possible.
       </p>
       <Form />
     </Container>
