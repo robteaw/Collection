@@ -27,11 +27,10 @@ export default function Movie() {
     );
   });
 
-    // Clear search
-    const clearInput = () => {
-      setFilter("");
-    };
-  
+  // Clear search
+  const clearInput = () => {
+    setFilter("");
+  };
 
   return (
     <>
@@ -50,17 +49,17 @@ export default function Movie() {
         </button>
       </div>
       <div className="card_container">
-        {dataSearch.map((movie) => {          
+        {dataSearch.map((movie) => {
           // .sort((a, b) => (a.name > b.name ? 1 : -1)) // sort by name
           // .map((movie) => {
-            return (
-              <div className="card">
-                <h3>{movie.name}</h3>
-                <p>{movie.genre}</p>
-                <img src={movie.image} alt="" />
-              </div>
-            );
-           })}
+          return (
+            <div className="card">
+              <h3>{movie.name}</h3>
+              <p>{movie.genre}</p>
+              <img src={movie.image} alt="" />
+            </div>
+          );
+        })}
       </div>
     </>
   );

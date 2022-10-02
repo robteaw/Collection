@@ -101,11 +101,14 @@ const Container = styled.div`
       padding: 0.75rem;
       border-radius: 0.5rem;
     }
-    input:focus {
-      background-color: var(--subText);
+    input[type="text"]:focus {
+      box-shadow: 0 0 0 2.5px rgb(9, 241, 86);
+    }
+    input[type="email"]:focus {
+      box-shadow: 0 0 0 2.5px rgb(9, 241, 86);
     }
     textarea:focus {
-      background-color: var(--subText);
+      box-shadow: 0 0 0 2.5px rgb(9, 241, 86);
     }
     .form-text {
       grid-column: 1 / -1;
@@ -118,34 +121,34 @@ const Container = styled.div`
   }
 `;
 
-const Reason = styled.div`
-  select {
-    appearance: none;
-    border: 0;
-    font: inherit;
-    width: 100%;
-    border: 1px solid var(--selectColor);
-    background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
-        no-repeat right 0.8em center / 1.4em,
-      linear-gradient(to left, var(--selectColor) 3em, var(--btnColor) 3em);
-    color: black;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    cursor: pointer;
-    option {
-      color: (--textColor);
-      background-color: var(--textHover);
-    }
-    /* Remove focus outline */
-    &:focus {
-      outline: none;
-    }
-    /* Remove IE arrow */
-    &::-ms-expand {
-      display: none;
-    }
-  }
-`;
+// const Reason = styled.div`
+//   select {
+//     appearance: none;
+//     border: 0;
+//     font: inherit;
+//     width: 100%;
+//     border: 1px solid var(--selectColor);
+//     background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
+//         no-repeat right 0.8em center / 1.4em,
+//       linear-gradient(to left, var(--selectColor) 3em, var(--btnColor) 3em);
+//     color: black;
+//     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+//       0 4px 6px -2px rgba(0, 0, 0, 0.05);
+//     cursor: pointer;
+//     option {
+//       color: (--textColor);
+//       background-color: var(--textHover);
+//     }
+//     /* Remove focus outline */
+//     &:focus {
+//       outline: none;
+//     }
+//     /* Remove IE arrow */
+//     &::-ms-expand {
+//       display: none;
+//     }
+//   }
+// `;
 
 const Submit = styled.div`
   grid-column: 1 / -1;

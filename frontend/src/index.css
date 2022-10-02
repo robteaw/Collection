@@ -12,6 +12,7 @@
   --headColor: #00FF00;
   --textColor: #dcdcdc;
   --selectColor: #b09cbd;
+  --focusColor: #fff;
   --btnColor: #4B0082;
   --btnColor2: #000;
   --btnHover: #00FF00;
@@ -38,4 +39,8 @@ p {
   color: var(--textColor);
   font-size: 1.125rem;
   line-height: 2;
+}
+input:focus {
+  box-shadow: 0 0 0 2.5px rgb(9, 241, 86);
+  outline: none;
 }
