@@ -35,12 +35,9 @@ export default function Movie() {
   return (
     <>
       <div className="search_bar">
-        <button className="search">
-          <FaSearch />
-        </button>
         <input
           type="text"
-          placeholder=" Search"
+          placeholder="🔍 Search"
           value={filter}
           onChange={searchText.bind(this)}
         />
