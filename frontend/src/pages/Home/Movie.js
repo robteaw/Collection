@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import { FaSearch, FaTimes } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
+import ReactPaginate from "react-paginate";
 
 export default function Movie() {
-  const [listOfMovies, setListOfMovies] = useState([]);
+  const [listOfMovies, setListOfMovies] = useState(Object.slice(0, 15));
 
   useEffect(() => {
     Axios.get("http://localhost:3001/getMovies").then((response) => {
@@ -32,6 +33,30 @@ export default function Movie() {
     setFilter("");
   };
 
+  // Paginations
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const moviesPerPage = 15;
+  const pagesVisited = pageNumber * listOfMovies;
+
+  const displayMovies = listOfMovies
+    .slice(pagesVisited, pagesVisited + moviesPerPage)
+    .map((movie) => {
+      return (
+        <div className="card">
+          <h3>{movie.name}</h3>
+          <p>{movie.genre}</p>
+          <img src={movie.image} alt="" />
+        </div>
+      );
+    });
+
+  const pageCount = Math.ceil(movies.length / moviesPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
   return (
     <>
       <div className="search_bar">
@@ -49,13 +74,23 @@ export default function Movie() {
         {dataSearch.map((movie) => {
           // .sort((a, b) => (a.name > b.name ? 1 : -1)) // sort by name
           // .map((movie) => {
-          return (
-            <div className="card">
-              <h3>{movie.name}</h3>
-              <p>{movie.genre}</p>
-              <img src={movie.image} alt="" />
-            </div>
-          );
+          return;
+
+          {
+            displayMovies;
+          }
+
+          <ReactPaginate
+            previousLabel={"Previous"}
+            nextLabel={"Next"}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={"paginateBtn"}
+            previousLinkClassName={"previousBtn"}
+            nextLinkClassName={"nextBtn"}
+            disabledClassName={"paginationDisabled"}
+            activeClassName={"paginationActive"}
+          />;
         })}
       </div>
     </>
