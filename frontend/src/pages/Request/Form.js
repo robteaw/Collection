@@ -12,7 +12,6 @@ export default function Form() {
   const showMessage = () => setMessage(!message);
   return (
     <Container>
-      {" "}
       <form action="/contact" name="contact" method="POST" onSubmit={onSubmit}>
         <input type="hidden" name="form-name" value="contact" />
         <div>
@@ -71,9 +70,11 @@ export default function Form() {
 // styling
 const Container = styled.div`
   form {
+    max-width: 45rem;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 16px;
+    margin: 0 auto;
     align-items: center;
     justify-content: center;
     @media (min-width: 768px) {

@@ -21,6 +21,7 @@ export default function Request() {
 const Container = styled.div`
   height: 100vh;
   padding: 8rem 15%;
+  text-align: center;
   p {
     margin-bottom: 1.5rem;
   }
