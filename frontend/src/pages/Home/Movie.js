@@ -4,15 +4,16 @@ import { FaTimes } from "react-icons/fa";
 import ReactPaginate from "react-paginate";
 
 export default function Movie() {
-  const [listOfMovies, setListOfMovies] = useState([]); // dataSearch.slice(0, 15)
+  const [listOfMovies, setListOfMovies] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/getMovies").then((response) => {
+    Axios.get("http://localhost:3001/getMovies/").then((response) => {
       setListOfMovies(response.data);
     });
   }, []);
 
   // Paginations
+  const [movies, setMovies] = useState(listOfMovies.slice(0, 5));
   const [pageNumber, setPageNumber] = useState(0);
 
   const moviesPerPage = 15;
@@ -62,7 +63,7 @@ export default function Movie() {
       <div className="search_bar">
         <input
           type="text"
-          placeholder="&#x1F50E;&#xFE0E; Search"
+          placeholder=" Search" // &#x1F50E;&#xFE0E;
           value={filter}
           onChange={searchText.bind(this)}
         />
@@ -77,21 +78,28 @@ export default function Movie() {
             return (
               <>
                 {displayMovies}
-
-                <ReactPaginate
-                  previousLabel={"Previous"}
-                  nextLabel={"Next"}
-                  pageCount={pageCount}
-                  onPageChange={changePage}
-                  containerClassName={"paginateBtn"}
-                  previousLinkClassName={"previousBtn"}
-                  nextLinkClassName={"nextBtn"}
-                  disabledClassName={"paginationDisabled"}
-                  activeClassName={"paginationActive"}
-                />
+                {/* <div className="card">
+                  <h3>{movie.name}</h3>
+                  <p>{movie.genre}</p>
+                  <img src={movie.image} alt="" />
+                </div> */}
               </>
             );
           })}
+      </div>
+
+      <div>
+        <ReactPaginate
+          previousLabel={"Previous"}
+          nextLabel={"Next"}
+          pageCount={pageCount}
+          onPageChange={changePage}
+          containerClassName={"paginateBtn"}
+          previousLinkClassName={"previousBtn"}
+          nextLinkClassName={"nextBtn"}
+          disabledClassName={"paginationDisabled"}
+          activeClassName={"paginationActive"}
+        />
       </div>
     </>
   );
