@@ -13,29 +13,29 @@ export default function Movie() {
   }, []);
 
   // Paginations
-  const [movies, setMovies] = useState(listOfMovies.slice(0, 5));
-  const [pageNumber, setPageNumber] = useState(0);
+  // const [movies, setMovies] = useState(listOfMovies.slice(0, 5));
+  // const [pageNumber, setPageNumber] = useState(0);
 
-  const moviesPerPage = 15;
-  const pagesVisited = pageNumber * listOfMovies;
+  // const moviesPerPage = 15;
+  // const pagesVisited = pageNumber * listOfMovies;
 
-  const displayMovies = listOfMovies
-    .slice(pagesVisited, pagesVisited + moviesPerPage)
-    .map((movie) => {
-      return (
-        <div className="card">
-          <h3>{movie.name}</h3>
-          <p>{movie.genre}</p>
-          <img src={movie.image} alt="" />
-        </div>
-      );
-    });
+  // const displayMovies = listOfMovies
+  //   .slice(pagesVisited, pagesVisited + moviesPerPage)
+  //   .map((movie) => {
+  //     return (
+  //       <div className="card">
+  //         <h3>{movie.name}</h3>
+  //         <p>{movie.genre}</p>
+  //         <img src={movie.image} alt="" />
+  //       </div>
+  //     );
+  //   });
 
-  const pageCount = Math.ceil(displayMovies.length / moviesPerPage);
+  // const pageCount = Math.ceil(displayMovies.length / moviesPerPage);
 
-  const changePage = ({ selected }) => {
-    setPageNumber(selected);
-  };
+  // const changePage = ({ selected }) => {
+  //   setPageNumber(selected);
+  // };
 
   // Filter search
   const [filter, setFilter] = useState("");
@@ -77,19 +77,19 @@ export default function Movie() {
           .map((movie) => {
             return (
               <>
-                {displayMovies}
-                {/* <div className="card">
+                {/* {displayMovies} */}
+                <div className="card">
                   <h3>{movie.name}</h3>
                   <p>{movie.genre}</p>
                   <img src={movie.image} alt="" />
-                </div> */}
+                </div>
               </>
             );
           })}
       </div>
 
       <div>
-        <ReactPaginate
+        {/* <ReactPaginate
           previousLabel={"Previous"}
           nextLabel={"Next"}
           pageCount={pageCount}
@@ -99,7 +99,7 @@ export default function Movie() {
           nextLinkClassName={"nextBtn"}
           disabledClassName={"paginationDisabled"}
           activeClassName={"paginationActive"}
-        />
+        /> */}
       </div>
     </>
   );

@@ -154,14 +154,14 @@ const Container = styled.div`
 const Submit = styled.div`
   grid-column: 1 / -1;
   input[type="submit"] {
-    color: var(--btnColor);
+    color: var(--linkColor);
     background: transparent;
     font-size: 1rem;
     font-weight: 600;
     width: 10rem;
     padding: 0.7rem;
     margin-top: 1rem;
-    border: 2px solid var(--btnColor);
+    border: 2px solid var(--linkColor);
     border-radius: 5rem;
     cursor: pointer;
     transition: 0.4s;
@@ -172,7 +172,7 @@ const Submit = styled.div`
     }
   }
   .message {
-    color: var(--messageColor);
+    color: var(--linkColor);
     font-weight: bold;
     transition: 0.4s;
   }
