@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Movie from "./Movie2";
+import Movie from "./Movie";
 
 export default function Home() {
   return (
@@ -116,6 +116,28 @@ const InnerContainer = styled.div`
   .delete {
     background-color: var(--deleteBtn);
   }
+  .paginateBtn {
+    height: 5rem;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+    a {
+      color: var(--linkColor);
+      margin: 0 auto;
+      padding: 0 2rem;
+      cursor: pointer;
+      &:hover {
+        color: var(--linkHover);
+      }
+    }
+  }
+  .paginateActive a {
+    color: var(--linkHover);
+    font-weight: bold;
+  }
+
   // Media Queries
   @media (max-width: 1300px) {
     .card_container {

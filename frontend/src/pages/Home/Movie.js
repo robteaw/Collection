@@ -12,31 +12,6 @@ export default function Movie() {
     });
   }, []);
 
-  // Paginations
-  // const [movies, setMovies] = useState(listOfMovies.slice(0, 5));
-  // const [pageNumber, setPageNumber] = useState(0);
-
-  // const moviesPerPage = 15;
-  // const pagesVisited = pageNumber * listOfMovies;
-
-  // const displayMovies = listOfMovies
-  //   .slice(pagesVisited, pagesVisited + moviesPerPage)
-  //   .map((movie) => {
-  //     return (
-  //       <div className="card">
-  //         <h3>{movie.name}</h3>
-  //         <p>{movie.genre}</p>
-  //         <img src={movie.image} alt="" />
-  //       </div>
-  //     );
-  //   });
-
-  // const pageCount = Math.ceil(displayMovies.length / moviesPerPage);
-
-  // const changePage = ({ selected }) => {
-  //   setPageNumber(selected);
-  // };
-
   // Filter search
   const [filter, setFilter] = useState("");
 
@@ -52,6 +27,31 @@ export default function Movie() {
         .includes(filter.toString().toLowerCase())
     );
   });
+
+  // Paginations
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const moviesPerPage = 12;
+  const pagesVisited = pageNumber * moviesPerPage;
+
+  const displayMovies = dataSearch
+    .slice(pagesVisited, pagesVisited + moviesPerPage)
+    .sort((a, b) => (a.name > b.name ? 1 : -1)) // sort by name
+    .map((movie) => {
+      return (
+        <div className="card">
+          <h3>{movie.name}</h3>
+          <p>{movie.genre}</p>
+          <img src={movie.image} alt="" />
+        </div>
+      );
+    });
+
+  const pageCount = Math.ceil(listOfMovies.length / moviesPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
 
   // Clear search
   const clearInput = () => {
@@ -71,25 +71,10 @@ export default function Movie() {
           <FaTimes />
         </button>
       </div>
-      <div className="card_container">
-        {dataSearch
-          .sort((a, b) => (a.name > b.name ? 1 : -1)) // sort by name
-          .map((movie) => {
-            return (
-              <>
-                {/* {displayMovies} */}
-                <div className="card">
-                  <h3>{movie.name}</h3>
-                  <p>{movie.genre}</p>
-                  <img src={movie.image} alt="" />
-                </div>
-              </>
-            );
-          })}
-      </div>
+      <div className="card_container">{displayMovies}</div>
 
       <div>
-        {/* <ReactPaginate
+        <ReactPaginate
           previousLabel={"Previous"}
           nextLabel={"Next"}
           pageCount={pageCount}
@@ -97,9 +82,9 @@ export default function Movie() {
           containerClassName={"paginateBtn"}
           previousLinkClassName={"previousBtn"}
           nextLinkClassName={"nextBtn"}
-          disabledClassName={"paginationDisabled"}
-          activeClassName={"paginationActive"}
-        /> */}
+          disabledClassName={"paginateDisabled"}
+          activeClassName={"paginateActive"}
+        />
       </div>
     </>
   );
