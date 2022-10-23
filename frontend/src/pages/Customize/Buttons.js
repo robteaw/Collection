@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { FaPlus, FaEdit, FaTimes } from "react-icons/fa";
+import ReactPaginate from "react-paginate";
 
 export default function Buttons() {
   const [listOfMovies, setListOfMovies] = useState([]);
@@ -13,6 +14,50 @@ export default function Buttons() {
       setListOfMovies(response.data);
     });
   }, []);
+
+  // Paginations
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const moviesPerPage = 12;
+  const pagesVisited = pageNumber * moviesPerPage;
+
+  const displayMovies = listOfMovies
+    .slice(pagesVisited, pagesVisited + moviesPerPage)
+    .sort((a, b) => (a.name > b.name ? 1 : -1)) // sort by name
+    .map((movie) => {
+      return (
+        <div className="card">
+          <h3>{movie.name}</h3>
+          <p>{movie.genre}</p>
+          <div className="button_container_2">
+            <button
+              className="edit"
+              onClick={() => {
+                updateMovie(movie._id);
+              }}
+            >
+              <FaEdit />
+            </button>
+            <button
+              className="delete"
+              onClick={() => {
+                deleteMovie(movie._id);
+              }}
+            >
+              <FaTimes />
+            </button>
+          </div>
+
+          <img src={movie.image} alt="" />
+        </div>
+      );
+    });
+
+  const pageCount = Math.ceil(listOfMovies.length / moviesPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
 
   // Add movie
   const createMovie = (e) => {
@@ -91,37 +136,19 @@ export default function Buttons() {
         </div>
       </div>
 
-      <div className="card_container">
-        {listOfMovies
-          .sort((a, b) => (a.name > b.name ? 1 : -1)) // sort by name
-          .map((movie) => {
-            return (
-              <div className="card">
-                <h3>{movie.name}</h3>
-                <p>{movie.genre}</p>
-                <div className="button_container_2">
-                  <button
-                    className="edit"
-                    onClick={() => {
-                      updateMovie(movie._id);
-                    }}
-                  >
-                    <FaEdit />
-                  </button>
-                  <button
-                    className="delete"
-                    onClick={() => {
-                      deleteMovie(movie._id);
-                    }}
-                  >
-                    <FaTimes />
-                  </button>
-                </div>
-
-                <img src={movie.image} alt="" />
-              </div>
-            );
-          })}
+      <div className="card_container">{displayMovies}</div>
+      <div>
+        <ReactPaginate
+          previousLabel={"Previous"}
+          nextLabel={"Next"}
+          pageCount={pageCount}
+          onPageChange={changePage}
+          containerClassName={"paginateBtn"}
+          previousLinkClassName={"previousBtn"}
+          nextLinkClassName={"nextBtn"}
+          disabledClassName={"paginateDisabled"}
+          activeClassName={"paginateActive"}
+        />
       </div>
     </section>
   );

@@ -51,7 +51,7 @@ const InnerContainer = styled.div`
   }
   .card_container {
     width: 100%;
-    margin-top: 5rem;
+    margin-top: 3rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 7rem;
@@ -116,6 +116,8 @@ const InnerContainer = styled.div`
   .delete {
     background-color: var(--deleteBtn);
   }
+
+  /* Paginate */
   .paginateBtn {
     height: 5rem;
     margin-top: 5rem;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { FaTimes } from "react-icons/fa";
+import "../../index.css";
 import ReactPaginate from "react-paginate";
 
 export default function Movie() {
