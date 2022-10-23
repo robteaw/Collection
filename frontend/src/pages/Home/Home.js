@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Movie from "./Movie";
+import Movie from "./Movie2";
 
 export default function Home() {
   return (
