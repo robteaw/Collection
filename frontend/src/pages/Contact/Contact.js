@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import Form from "./Form";
 
-export default function Request() {
+export default function Contact() {
   return (
     <Container>
-      <h1>Request</h1>
+      <h1>Contact</h1>
       <p>
         {/* Choose a movie that you are interested in from the dropdown list and
         provide a time of day. */}
