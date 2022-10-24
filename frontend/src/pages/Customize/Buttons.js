@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import { FaPlus, FaEdit, FaTimes } from "react-icons/fa";
+import { FaPlus, FaEdit, FaTimes, FaSearch } from "react-icons/fa";
 import ReactPaginate from "react-paginate";
+import { useNavigate } from "react-router-dom";
 
 export default function Buttons() {
   const [listOfMovies, setListOfMovies] = useState([]);
@@ -105,6 +106,9 @@ export default function Buttons() {
     }
   };
 
+  // Click to link
+  let navigate = useNavigate();
+
   return (
     <section>
       <div className="add_data">
@@ -132,6 +136,14 @@ export default function Buttons() {
         <div className="button_container">
           <button className="add" onClick={createMovie}>
             <FaPlus />
+          </button>
+          <button
+            className="search"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            <FaSearch />
           </button>
         </div>
       </div>

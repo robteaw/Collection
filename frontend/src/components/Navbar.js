@@ -25,9 +25,6 @@ export default function Navbar() {
           <Link to="/">Movies</Link>
         </li>
         <li className="nav-links" onClick={closeMobileMenu}>
-          <Link to="/customize">Customize</Link>
-        </li>
-        <li className="nav-links" onClick={closeMobileMenu}>
           <Link to="/contact">Contact</Link>
         </li>
       </ul>

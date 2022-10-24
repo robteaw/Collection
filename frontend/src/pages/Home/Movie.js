@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaEdit } from "react-icons/fa";
 import "../../index.css";
 import ReactPaginate from "react-paginate";
+import { useNavigate } from "react-router-dom";
 
 export default function Movie() {
   const [listOfMovies, setListOfMovies] = useState([]);
@@ -32,7 +33,7 @@ export default function Movie() {
   // Paginations
   const [pageNumber, setPageNumber] = useState(0);
 
-  const moviesPerPage = 12;
+  const moviesPerPage = 9;
   const pagesVisited = pageNumber * moviesPerPage;
 
   const displayMovies = dataSearch
@@ -59,6 +60,9 @@ export default function Movie() {
     setFilter("");
   };
 
+  // Click to link
+  let navigate = useNavigate();
+
   return (
     <>
       <div className="search_bar">
@@ -70,6 +74,14 @@ export default function Movie() {
         />
         <button className="delete" onClick={clearInput}>
           <FaTimes />
+        </button>
+        <button
+          className="customize"
+          onClick={() => {
+            navigate("/customize");
+          }}
+        >
+          <FaEdit />
         </button>
       </div>
       <div className="card_container">{displayMovies}</div>
